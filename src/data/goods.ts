@@ -1,7 +1,7 @@
 type GoodsItem = {
   fromLeft: number;
   num: number;
-  status: 'completed' | 'negotiating' | 'pending' | 'unexchanged';
+  status: 'completed' | 'negotiating' | 'unexchanged';
   createdAt: Date;
 };
 
@@ -33,7 +33,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -56,7 +56,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -79,7 +79,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -108,7 +108,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -137,7 +137,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -166,7 +166,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -189,7 +189,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -207,7 +207,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 5,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -235,7 +235,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -258,7 +258,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -287,7 +287,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -322,7 +322,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 5,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -339,7 +339,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -368,7 +368,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -391,7 +391,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -408,7 +408,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -443,7 +443,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 5,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -489,7 +489,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -518,7 +518,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 5,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -535,7 +535,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -558,7 +558,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -587,7 +587,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -616,7 +616,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 5,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -650,7 +650,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -679,7 +679,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -696,7 +696,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -725,7 +725,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -742,7 +742,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -777,7 +777,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -823,7 +823,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -840,7 +840,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -869,7 +869,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -921,7 +921,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -961,7 +961,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -984,7 +984,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -1001,7 +1001,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -1047,7 +1047,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -1064,7 +1064,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -1104,7 +1104,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -1127,7 +1127,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 3,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -1144,7 +1144,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -1185,7 +1185,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 4,
             num: 1,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -1208,7 +1208,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 5,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
         ],
@@ -1236,7 +1236,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 2,
             num: 3,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
@@ -1259,7 +1259,7 @@ let goodsList: GoodsSeries[] = [
           {
             fromLeft: 1,
             num: 2,
-            status: 'pending',
+            status: 'unexchanged',
             createdAt: new Date(),
           },
           {
