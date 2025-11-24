@@ -4,7 +4,39 @@ import goodsList from '../data/goods.js';
 export default {
   // 全シリーズ
   index: (req: Express.Request, res: Express.Response) => {
-    res.status(200).send(goodsList);
+    // 渡ってきたメンバー名
+    const { memberName } = req.query;
+
+    // 「絞り込まれたもの」用の初期値
+    let filtered = goodsList;
+
+    // クエリに指定があった場合は実行される
+    if (memberName) {
+      filtered = goodsList
+        .map((goods) => {
+          // シリーズの中のメンバーを絞る
+          const filteredMember = goods.members.filter(
+            (members) => members.member === memberName,
+          );
+          // 元オブジェクトをコピーしてその上からメンバーだけ上書き
+          return {
+            ...goods,
+            members: filteredMember,
+          };
+        })
+        // メンバーがいない場合はそのシリーズごと消す
+        .filter((goods) => goods.members.length > 0);
+    }
+
+    // メンバーの存在チェック
+    if (filtered.length === 0) {
+      return res.status(404).send({
+        message: 'このメンバーは見つかりませんでした。',
+      });
+    }
+
+    // 絞り込み結果を返却
+    res.status(200).send(filtered);
   },
 
   // 各シリーズごと
