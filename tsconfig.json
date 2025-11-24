@@ -1,0 +1,49 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "src", // TSコンパイル前の「元ファイル(ソース)が入っているフォルダ」を指定
+    "outDir": "dist", // TSがコンパイル後のJSを出力するフォルダを指定（本番実行はここを使うのが基本）
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "NodeNext", // Node.jsのESMを使うための設定
+    "moduleResolution": "NodeNext", // ESMのパス解決ルールに合わせる
+    "target": "ES2020", // TypeScriptが生成するJavaScriptの構文レベル（お好みで）
+    "types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+
+    "esModuleInterop": true, // importとrequireの互換性をよくする
+    "forceConsistentCasingInFileNames": true // ファイル名の大文字/小文字の違いによるバグを防ぐ
+  },
+  "include": ["src"] // TSにこのフォルダだけを監視させる
+}
