@@ -3,7 +3,7 @@ import goodsController from '../controllers/goodsController.js';
 
 const router = Express.Router();
 
-router.get('/goods', goodsController.index);
-router.get('/goods/:seriesId', goodsController.showSeries);
+router.get('/', goodsController.index);
+router.get('/:seriesId', goodsController.showSeries);
 
 export default router;

@@ -7,7 +7,7 @@ import router from './routes/index.js';
 import expressEjsLayouts from 'express-ejs-layouts';
 
 const app: Application = Express();
-const PORT = 3000;
+const PORT = 4000;
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello, Express + TypeScript!');
