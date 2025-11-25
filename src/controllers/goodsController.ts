@@ -5,7 +5,10 @@ export default {
   // 全シリーズ
   index: (req: Express.Request, res: Express.Response) => {
     // 渡ってきたメンバー名
-    const { memberName } = req.query;
+    const { memberName, seriesId } = req.query as {
+      memberName?: string;
+      seriesId?: string;
+    };
 
     // 「絞り込まれたもの」用の初期値
     let filtered = goodsList;
@@ -28,6 +31,20 @@ export default {
         .filter((goods) => goods.members.length > 0);
     }
 
+    // selectタグ用の現在のシリーズ
+    let currentSeries = null;
+
+    // クエリに指定があった場合は実行される
+    if (seriesId) {
+      // クエリにseriesIdがあればそれを優先
+      currentSeries = filtered.find((series) => series.id === seriesId) ?? null;
+    } else {
+      // ない場合はseriesIdの先頭（最初のシリーズ）を選ぶ
+      if (filtered.length > 0) {
+        currentSeries = filtered[0];
+      }
+    }
+
     // メンバーの存在チェック
     if (filtered.length === 0) {
       return res.status(404).send({
@@ -36,7 +53,7 @@ export default {
     }
 
     // 絞り込み結果を返却
-    res.status(200).send(filtered);
+    res.render('goods/index', { filtered, currentSeries });
   },
 
   // 各シリーズごと

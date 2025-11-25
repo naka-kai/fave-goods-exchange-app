@@ -5,6 +5,6 @@ import goodsRoutes from './goodsRoutes.js';
 const router = Express.Router();
 
 router.use('/health', healthRoutes);
-router.use('/api/v1', goodsRoutes);
+router.use('/', goodsRoutes);
 
 export default router;

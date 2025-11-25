@@ -1,0 +1,75 @@
+<h1 class="goods">グッズ一覧</h1>
+<div class="container">
+    <div class="series-select">
+        <select class="series-select-box" name="series">
+            <option value="">シリーズを選択してください</option>
+            <% if (filtered) { %>
+                <% filtered.forEach(function(goodsList) { %>
+                    <option value="<%- goodsList.id %>"><%- goodsList.title %></option>
+                <% }); %>
+            <% } %>
+        </select>
+    </div>
+
+    <div class="member-container">
+        <h3 class="member">メンバー</h3>
+        <% if (currentSeries && currentSeries.members) { %>
+            <% currentSeries.members.forEach(function(member) { %>
+                <div class="member-select">
+                    <input type="radio" name="member" id="<%- member.member %>" value="<%- member.member %>">
+                    <label for="<%- member.member %>"><%- member.member %></label>
+                </div>
+            <% }); %>
+        <% } %>
+    </div>
+
+    <div class="status-container">
+        <h3 class="status">ステータス</h3>
+        <div class="status-select-wrapper">
+            <div class="status-select">
+                <input type="checkbox" name="completed" id="completed">
+                <label class="completed" for="completed">交換済</label>
+            </div>
+            <div class="status-select">
+                <input type="checkbox" name="negotiating" id="negotiating">
+                <label class="negotiating" for="negotiating">交渉中</label>
+            </div>
+            <div class="status-select">
+                <input type="checkbox" name="unexchanged" id="unexchanged">
+                <label class="unexchanged" for="unexchanged">未交換</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="series-member-container">
+        <h2 class="member-name">KAI</h2>
+        <span class="series-tag">B9 Unlimited</span>
+        <div class="item-container">
+            <div class="item">
+                <div class="completed">1</div>
+                <div class="negotiating">2</div>
+                <div class="unexchanged">3</div>
+            </div>
+            <div class="item">
+                <div class="completed">2</div>
+                <div class="negotiating">2</div>
+                <div class="unexchanged">3</div>
+            </div>
+            <div class="item">
+                <div class="completed">3</div>
+                <div class="negotiating">2</div>
+                <div class="unexchanged">3</div>
+            </div>
+            <div class="item">
+                <div class="completed">1</div>
+                <div class="negotiating">3</div>
+                <div class="unexchanged">3</div>
+            </div>
+            <div class="item">
+                <div class="completed">1</div>
+                <div class="negotiating">2</div>
+                <div class="unexchanged">2</div>
+            </div>
+        </div>
+    </div>
+</div>
