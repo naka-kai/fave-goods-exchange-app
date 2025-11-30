@@ -1,14 +1,12 @@
 import Express from 'express';
 import goodsList from '../data/goods.js';
+import type { GoodsIndexQuery } from 'src/types/goods.js';
 
 export default {
   // 全シリーズ
   index: (req: Express.Request, res: Express.Response) => {
     // 渡ってきたメンバー名
-    const { memberName, seriesId } = req.query as {
-      memberName?: string;
-      seriesId?: string;
-    };
+    const { series, memberName, statusList }: GoodsIndexQuery = req.query;
 
     // 「絞り込まれたもの」用の初期値
     let filtered = goodsList;
@@ -35,11 +33,11 @@ export default {
     let currentSeries = null;
 
     // クエリに指定があった場合は実行される
-    if (seriesId) {
-      // クエリにseriesIdがあればそれを優先
-      currentSeries = filtered.find((series) => series.id === seriesId) ?? null;
+    if (series) {
+      // クエリにseriesがあればそれを優先
+      currentSeries = filtered.find((cSeries) => cSeries.id === series) ?? null;
     } else {
-      // ない場合はseriesIdの先頭（最初のシリーズ）を選ぶ
+      // ない場合はseriesの先頭（最初のシリーズ）を選ぶ
       if (filtered.length > 0) {
         currentSeries = filtered[0];
       }
@@ -59,17 +57,17 @@ export default {
   // 各シリーズごと
   showSeries: (req: Express.Request, res: Express.Response) => {
     // 渡ってきたシリーズID
-    const seriesId = req.params.seriesId;
+    const series = req.params.series;
 
     // シリーズIDの存在チェック
-    if (!seriesId) {
+    if (!series) {
       return res.status(400).send({
         message: 'シリーズIDが指定されていません。',
       });
     }
 
     // シリーズIDの存在チェック
-    const seriesList = goodsList.find((series) => series.id === seriesId);
+    const seriesList = goodsList.find((cSeries) => cSeries.id === series);
 
     // シリーズが見つからなかった場合
     if (seriesList == null) {
