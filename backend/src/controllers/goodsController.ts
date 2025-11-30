@@ -1,12 +1,63 @@
 import Express from 'express';
 import goodsList from '../data/goods.js';
-import type { GoodsIndexQuery } from 'src/types/goods.js';
+import type {
+  GoodsIndexQuery,
+  GoodsRequest,
+  RowGoodsQuery,
+} from 'src/types/goods.js';
+import type { GoodsStatus } from '@shared/types/goods.js';
+
+// バリデーション関数
+const isGoodsStatus = (value: string): value is GoodsStatus => {
+  return (
+    value === 'completed' || value === 'negotiating' || value === 'unexchanged'
+  );
+};
+
+// 正規化のヘルバー関数
+const normalizeQuery = (query: RowGoodsQuery): GoodsIndexQuery => {
+  let series = query.series;
+  let memberName = query.memberName;
+  let status = query.status;
+
+  // seriesの正規化
+  if (Array.isArray(series)) {
+    series = undefined;
+  }
+
+  // memberNameの正規化
+  if (Array.isArray(memberName)) {
+    memberName = undefined;
+  }
+
+  // statusの正規化
+  let statusList: GoodsStatus[] = [];
+
+  if (status === undefined) {
+    // undefinedが入ってきた場合はそのまま全表示
+    statusList = [];
+  } else if (typeof status === 'string') {
+    // string型だった場合はisGoodsStatus内のものならGoodsStatus[](例:['completed'])として、そうでなければ空配列とする
+    statusList = [status].filter(isGoodsStatus);
+  } else if (Array.isArray(status)) {
+    // 配列だった場合はisGoodsStatus内のものだけ残す
+    statusList = status.filter(isGoodsStatus);
+  }
+
+  const queryObject: GoodsIndexQuery = {
+    series,
+    memberName,
+    statusList,
+  };
+
+  return queryObject;
+};
 
 export default {
   // 全シリーズ
-  index: (req: Express.Request, res: Express.Response) => {
-    // 渡ってきたメンバー名
-    const { series, memberName, statusList }: GoodsIndexQuery = req.query;
+  index: (req: GoodsRequest, res: Express.Response) => {
+    // 渡ってきたシリーズ、メンバー名、ステータスを正規化したもの
+    const { series, memberName, statusList } = normalizeQuery(req.query);
 
     // 「絞り込まれたもの」用の初期値
     let filtered = goodsList;
@@ -56,17 +107,17 @@ export default {
 
   // 各シリーズごと
   showSeries: (req: Express.Request, res: Express.Response) => {
-    // 渡ってきたシリーズID
+    // 渡ってきたシリーズ
     const series = req.params.series;
 
-    // シリーズIDの存在チェック
+    // シリーズの存在チェック
     if (!series) {
       return res.status(400).send({
-        message: 'シリーズIDが指定されていません。',
+        message: 'シリーズが設定されていません。',
       });
     }
 
-    // シリーズIDの存在チェック
+    // シリーズの存在チェック
     const seriesList = goodsList.find((cSeries) => cSeries.id === series);
 
     // シリーズが見つからなかった場合
